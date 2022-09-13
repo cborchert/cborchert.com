@@ -1,5 +1,4 @@
-import React, { Fragment } from "react";
-// import TRANSLATIONS from "../../constants/Translations";
+import React from "react";
 import { useLanguageContext } from "../context/LanguageContext";
 
 type Dictionary = {

@@ -1,0 +1,12 @@
+@use "styles/spacing" as *;
+@use "styles/breakpoints" as *;
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  padding: $space-m;
+
+  @include screen-medium {
+    padding: $space-m $space-l;
+  }
+}

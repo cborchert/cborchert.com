@@ -1,7 +1,9 @@
 import Link from "next/link";
 import useTranslation from "../../../utils/hooks/useTranslation";
 
-const dictionary = {
+import styles from "./MainMenu.module.scss";
+
+const dictionary = Object.freeze({
   menuHome: {
     en: "Home",
     fr: "Accueil",
@@ -18,28 +20,32 @@ const dictionary = {
     en: "Availability",
     fr: "Disponibilité",
   },
-};
+});
+
+const links: Array<{ href: string; translationKey: keyof typeof dictionary }> =
+  [
+    { href: "/", translationKey: "menuHome" },
+    { href: "/work", translationKey: "menuWork" },
+    { href: "/about", translationKey: "menuAbout" },
+    { href: "/availability", translationKey: "menuAvailability" },
+  ];
 
 /**
  * Displays the main menu
  */
 const MainMenu = () => {
   const t = useTranslation(dictionary);
+
   return (
     <nav>
-      <ul>
-        <li>
-          <Link href="/">{t("menuHome")}</Link>
-        </li>
-        <li>
-          <Link href="/work">{t("menuWork")}</Link>
-        </li>
-        <li>
-          <Link href="/about">{t("menuAbout")}</Link>
-        </li>
-        <li>
-          <Link href="/availability">{t("menuAvailability")}</Link>
-        </li>
+      <ul className={styles.MainMenu__list}>
+        {links.map(({ href, translationKey }) => (
+          <li key={href} className={styles.MainMenu__item}>
+            <Link href={href}>
+              <a className="is-color-text">{t(translationKey)}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

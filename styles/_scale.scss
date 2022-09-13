@@ -29,11 +29,5 @@ $scale-double: 2;
 // scale(2, 1.5, 2) => 4.5
 // scale(2, 1.5, 3) => 6.75
 @function scale($size: 1, $scale: $scale-golden, $factor: 0) {
-  @if ($factor == 0) {
-    @return $size;
-  } @else if ($factor > 0) {
-    @return $size * math.pow($scale, $factor);
-  } @else {
-    @return $size * math.div(1, math.pow($scale, $factor));
-  }
+  @return $size * math.pow($scale, $factor);
 }

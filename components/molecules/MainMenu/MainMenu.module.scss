@@ -1,0 +1,18 @@
+@use "styles/spacing" as *;
+@use "styles/typography" as *;
+@use "styles/breakpoints" as *;
+
+.MainMenu__item {
+  list-style: none;
+  text-align: right;
+  font-weight: bold;
+  font-size: $size-s;
+  text-transform: lowercase;
+}
+
+.MainMenu__list {
+  @include screen-medium {
+    display: flex;
+    gap: $space-m;
+  }
+}

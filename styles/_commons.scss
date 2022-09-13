@@ -6,6 +6,26 @@
 @use "spacing" as *;
 @use "colors" as *;
 
+// add an animated underline to the element
+.with-animated-underline {
+  position: relative;
+  display: inline-block;
+  line-height: 1.125;
+
+  &:after {
+    display: block;
+    content: " ";
+    height: 2px;
+    width: 0;
+    background-color: $blue-light;
+    transition: 400ms ease;
+  }
+  &:hover:after {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
 body {
   font-size: $font-size;
   font-family: $font-sans;
@@ -28,8 +48,17 @@ a {
   color: $color-link;
   text-decoration: none;
 
+  @extend .with-animated-underline;
+
   &:hover {
     color: $color-link-hover;
+  }
+
+  &.is-color-text {
+    &,
+    &:hover {
+      color: $color-text;
+    }
   }
 }
 

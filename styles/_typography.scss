@@ -6,7 +6,7 @@
 @use "spacing" as *;
 @use "colors" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.go`ogleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 $font-sans: "Montserrat", "Helvetica", "Arial", sans-serif;
 $font-heading: $font-sans;
@@ -29,8 +29,9 @@ $font-size: 1.8rem;
   line-height: 1;
 }
 
-$size-xs: size(-2);
-$size-s: size(-1);
+$size-xxs: size(-1.5);
+$size-xs: size(-1);
+$size-s: size(-0.5);
 $size-m: $font-size;
 $size-l: size(1);
 $size-xl: size(2);

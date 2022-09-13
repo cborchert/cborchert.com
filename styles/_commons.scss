@@ -1,0 +1,42 @@
+/////////////////////////////////////////
+// COMMONS: Styles for common elements //
+/////////////////////////////////////////
+
+@use "typography" as *;
+@use "spacing" as *;
+@use "colors" as *;
+
+body {
+  font-size: $font-size;
+  font-family: $font-sans;
+  color: $color-text;
+}
+
+p,
+ul,
+ol,
+pre {
+  margin-bottom: $space-m;
+}
+
+blockquote {
+  margin: $space-m $space-s $space-m $space-l;
+  font-style: italic;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+}
+
+// headers
+@for $i from 1 through 5 {
+  h#{$i},
+  .h#{$i} {
+    @include header($i);
+  }
+}

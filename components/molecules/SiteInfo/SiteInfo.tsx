@@ -5,8 +5,8 @@ import styles from "./SiteInfo.module.scss";
 
 const dictionary = {
   siteInfoJsDev: {
-    en: "javascript developer",
-    fr: "développeur javascript",
+    en: "web developer",
+    fr: "développeur web",
   },
 };
 
@@ -19,7 +19,7 @@ const SiteInfo = () => {
     <div>
       <Link href="/">
         <a className={`${styles.SiteInfo__name} is-color-text`}>
-          Christopher Borchert
+          Chris Borchert
         </a>
       </Link>
       <p className={styles.SiteInfo__position}>{t("siteInfoJsDev")}</p>

@@ -1,0 +1,8 @@
+@use "styles/spacing" as *;
+
+.Section {
+  padding: 0 $space-m;
+  margin: 0 auto;
+  width: 1024px;
+  max-width: 100%;
+}

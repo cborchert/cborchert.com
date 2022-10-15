@@ -1,0 +1,32 @@
+@use "styles/spacing" as *;
+@use "styles/breakpoints" as *;
+
+.HomePageCurrentRole {
+  color: white;
+}
+
+.HomePageCurrentRole__header {
+  margin-bottom: $space-xl;
+}
+
+.HomePageCurrentRole__title {
+  margin: 0 0 $space-l;
+}
+
+.HomePageCurrentRole__subtitle {
+  margin: 0 0 $space-s;
+}
+
+.HomePageCurrentRole__body {
+  @include screen-medium {
+    display: flex;
+  }
+}
+
+.HomePageCurrentRole__bodyImages {
+  flex: 1;
+}
+
+.HomePageCurrentRole__bodyCopy {
+  flex: 1;
+}

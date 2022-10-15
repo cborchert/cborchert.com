@@ -67,5 +67,8 @@ a {
   h#{$i},
   .h#{$i} {
     @include header($i);
+    &.no-margin {
+      margin: 0;
+    }
   }
 }

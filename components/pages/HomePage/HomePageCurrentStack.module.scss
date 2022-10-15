@@ -1,0 +1,27 @@
+@use "styles/spacing" as *;
+@use "styles/breakpoints" as *;
+
+.HomePageCurrentStack {
+  padding: $space-xl 0;
+  font-weight: bold;
+  color: white;
+}
+
+.HomePageCurrentStack__title {
+  margin-bottom: $space-l;
+}
+
+.HomePageCurrentStack__content {
+  @include screen-medium {
+    display: flex;
+  }
+}
+
+.HomePageCurrentStack__technologies,
+.HomePageCurrentStack__logos {
+  flex: 1;
+}
+
+.HomePageCurrentStack__technologies {
+  line-height: 1.5;
+}

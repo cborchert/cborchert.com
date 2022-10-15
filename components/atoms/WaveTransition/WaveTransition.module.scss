@@ -1,0 +1,49 @@
+@use "styles/colors" as *;
+@use "styles/spacing" as *;
+
+.WaveTransition {
+  width: 100%;
+  overflow: hidden;
+
+  &.theme-light {
+    background-color: $white;
+    path {
+      fill: $bgGradient1;
+    }
+    .WaveTransition__content {
+      background-color: $bgGradient1;
+    }
+  }
+
+  &.theme-medium {
+    background-color: $bgGradient1;
+    color: $white;
+    path {
+      fill: $bgGradient2;
+    }
+    .WaveTransition__content {
+      background-color: $bgGradient2;
+    }
+  }
+
+  &.theme-dark {
+    background-color: $bgGradient2;
+    color: $white;
+    path {
+      fill: $bgGradient3;
+    }
+    .WaveTransition__content {
+      background-color: $bgGradient3;
+    }
+  }
+}
+
+.WaveTransition__content {
+  padding-top: $space-l;
+}
+
+.WaveTransition__wave {
+  height: 75px;
+  width: 100%;
+  min-width: 250px;
+}

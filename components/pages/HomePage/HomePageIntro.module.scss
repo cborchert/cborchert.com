@@ -1,0 +1,34 @@
+@use "styles/spacing" as *;
+@use "styles/breakpoints" as *;
+
+.HomePageIntro__text {
+  margin: $space-m auto $space-xl + $space-l;
+}
+
+.HomePageIntro__title {
+  margin-top: 0;
+}
+
+.HomePageIntro__description {
+  margin-top: $space-s + $space-m;
+  font-weight: 200;
+  font-size: clamp(2.5rem, 2vw, 3rem);
+
+  p {
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  em {
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @include screen-small {
+    font-size: 2rem;
+    font-weight: 400;
+    em {
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use "styles/colors" as *;
+@use "styles/typography" as *;
+
+.LanguageToggle {
+  text-transform: uppercase;
+  color: $gray;
+  font-size: $size-xs;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .LanguageToggle__info {
+    opacity: 0;
+    transition: 400ms 200ms;
+  }
+
+  &:focus {
+    // TODO: Bad chris, no focus styles!!
+    outline: none;
+  }
+
+  em {
+    color: $black;
+    font-style: normal;
+  }
+
+  &:hover {
+    .LanguageToggle__info {
+      opacity: 1;
+    }
+  }
+}

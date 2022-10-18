@@ -35,7 +35,7 @@ const HomePageIntro = () => {
             </p>
           </En>
           <Fr>
-            <p>
+            <p className={styles.HomePageIntro__mainLine}>
               Je crée des trucs cools pour le web avec du <em>JavaScript.</em>
             </p>
             <p>

@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 import type { Language } from "../../constants/Languages";
 import { LANGUAGES } from "../../constants/Languages";
@@ -6,6 +12,7 @@ import { LANGUAGES } from "../../constants/Languages";
 type LanguageContext = {
   language: Language;
   setLanguage: (arg0: any) => any;
+  toggleLanguage: () => void;
 };
 
 type Props = {
@@ -18,10 +25,20 @@ type Props = {
 const LanguageContext = createContext<LanguageContext>({
   language: LANGUAGES.EN,
   setLanguage: () => {},
+  toggleLanguage: () => {},
 });
 
 const LanguageProvider = ({ children }: Props) => {
   const [language, setLanguage] = useState<Language>("en");
+
+  const toggleLanguage = useCallback(() => {
+    if (language === LANGUAGES.EN) {
+      setLanguage(LANGUAGES.FR);
+    } else {
+      setLanguage(LANGUAGES.EN);
+    }
+  }, [language]);
+
   useEffect(() => {
     const queriedLanguage = new URLSearchParams(window.location.search).get(
       "lang"
@@ -46,7 +63,7 @@ const LanguageProvider = ({ children }: Props) => {
   }, []);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

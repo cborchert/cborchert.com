@@ -1,5 +1,6 @@
 import Link from "next/link";
 import useTranslation from "../../../utils/hooks/useTranslation";
+import LanguageToggle from "../LanguageToggle/LanguageToggle";
 
 import styles from "./MainMenu.module.scss";
 
@@ -39,13 +40,16 @@ const MainMenu = () => {
   return (
     <nav>
       <ul className={styles.MainMenu__list}>
-        {links.map(({ href, translationKey }) => (
+        <li className={styles.MainMenu__item}>
+          <LanguageToggle />
+        </li>
+        {/* {links.map(({ href, translationKey }) => (
           <li key={href} className={styles.MainMenu__item}>
             <Link href={href}>
               <a className="is-color-text">{t(translationKey)}</a>
             </Link>
           </li>
-        ))}
+        ))} */}
       </ul>
     </nav>
   );

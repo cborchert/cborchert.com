@@ -1,0 +1,18 @@
+@use "styles/spacing" as *;
+@use "styles/typography" as *;
+
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  padding: $space-m $space-l;
+  font-size: $size-s;
+}
+
+.Footer__links {
+  display: flex;
+  gap: $space-m;
+
+  li {
+    list-style: none;
+  }
+}

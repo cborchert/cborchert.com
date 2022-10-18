@@ -1,16 +1,13 @@
 import useTranslation from "../../../utils/hooks/useTranslation";
 import Section from "../../atoms/Section/Section";
+import HomePagePortfolioItem from "./HomePagePortfolioItem";
 
 import styles from "./HomePagePortfolio.module.scss";
 
 const dictionary = {
   portfolio: {
-    en: "Portfolio:",
-    fr: "Portfolio :",
-  },
-  portfolioDescription: {
-    en: `Since 2014, I’ve been building web sites, applications, and tools for a variety of clients (and, sometimes, just for fun!). Here are some of my personal favorites.`,
-    fr: `Depuis 2014, je crée des sites web, des applications, et des outils pour une variété de clients (et, parfois, juste pour le plaisir !). Voici quelques-uns de mes préférés.`,
+    en: "Featured Work",
+    fr: "Travaux",
   },
   viewProject: {
     en: "View Project",
@@ -47,82 +44,64 @@ const portfolioItems = [
     title: "Renault New Car Inventory",
     date: "2019-2021",
     descriptionKey: "nciDescription",
-    video: undefined,
     href: "/portfolio/nci",
+    video: "/media/hyperloop-cover.mp4",
+    loResCoverImage: "/media/hyperloop-cover.jpg",
+    bgColor: "#3f4456",
   },
   {
     title: "Digital Drag Fest",
     date: "2020",
     descriptionKey: "digitalDragFestDescription",
-    video: undefined,
     href: "/portfolio/digitalDragFest",
+    video: "/media/hyperloop-cover.mp4",
+    loResCoverImage: "/media/hyperloop-cover.jpg",
+    bgColor: "#3f4456",
   },
   {
     title: "5sg",
     date: "2021",
     descriptionKey: "_5sgDescription",
-    video: undefined,
     href: "/portfolio/5sg",
+    video: "/media/hyperloop-cover.mp4",
+    loResCoverImage: "/media/hyperloop-cover.jpg",
+    bgColor: "#3f4456",
   },
   {
     title: "Game Boy Gift",
     date: "2019",
     descriptionKey: "gameBoyGiftDescription",
-    video: undefined,
     href: "/portfolio/gameBoyGift",
+    video: "/media/hyperloop-cover.mp4",
+    loResCoverImage: "/media/hyperloop-cover.jpg",
+    bgColor: "#3f4456",
   },
   {
     title: "Axel's Adventure",
     date: "2020",
     descriptionKey: "axelsAdventureDescription",
-    video: undefined,
     href: "/portfolio/axelsAdventure",
+    video: "/media/hyperloop-cover.mp4",
+    loResCoverImage: "/media/hyperloop-cover.jpg",
+    bgColor: "#3f4456",
   },
   {
     title: "Hyperloop One Routes Calculator",
     date: "2017",
     descriptionKey: "hyperloopDescription",
-    video: undefined,
+    video: "/media/hyperloop-cover.mp4",
+    loResCoverImage: "/media/hyperloop-cover.jpg",
+    bgColor: "#3f4456",
     href: "/portfolio/hyperloop",
   },
 ];
-
-const HomePagePortfolioItem = ({
-  title,
-  date,
-  description,
-  video,
-  href,
-}: {
-  title: string;
-  date: string;
-  description: string | React.ReactElement;
-  video?: string;
-  href?: string;
-}) => {
-  const t = useTranslation(dictionary);
-  return (
-    <div className={styles.HomePagePortfolio__item}>
-      <div className={styles.HomePagePortfolio__video}></div>
-      <div className={styles.HomePagePortfolio__content}>
-        <p className={styles.HomePagePortfolio__title}>{title}</p>
-        <p className={styles.HomePagePortfolio__date}>{date}</p>
-        <p className={styles.HomePagePortfolio__description}>{description}</p>
-        <a className={styles.HomePagePortfolio__link} href="#">
-          {t("viewProject")}
-        </a>
-      </div>
-    </div>
-  );
-};
 
 const HomePagePortfolio = () => {
   const t = useTranslation(dictionary);
   return (
     <Section>
-      <p className="h1">{t("portfolio")}</p>
-      <p className="h4">{t("portfolioDescription")}</p>
-      <div>
+      <p className={styles.HomePagePortfolio__title}>{t("portfolio")}</p>
+      <div className={styles.HomePagePortfolio__items}>
         {portfolioItems.map(({ descriptionKey, ...rest }) => (
           <HomePagePortfolioItem
             key={rest.title}

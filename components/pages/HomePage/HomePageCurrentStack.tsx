@@ -1,5 +1,3 @@
-import classNames from "classnames";
-
 import En from "../../atoms/En/En";
 import Fr from "../../atoms/Fr/Fr";
 import Section from "../../atoms/Section/Section";
@@ -9,17 +7,12 @@ import styles from "./HomePageCurrentStack.module.scss";
 const HomePageCurrentStack = () => (
   <Section>
     <div className={styles.HomePageCurrentStack}>
-      <p className={classNames("h1", styles.HomePageCurrentStack__title)}>
+      <p className={styles.HomePageCurrentStack__title}>
         <En>Technologies Used:</En>
         <Fr>Technologies Utilisées :</Fr>
       </p>
       <div className={styles.HomePageCurrentStack__content}>
-        <ul
-          className={classNames(
-            "h4 no-margin",
-            styles.HomePageCurrentStack__technologies
-          )}
-        >
+        <ul className={styles.HomePageCurrentStack__technologies}>
           <li>
             JavaScript + Flow (<En>for types</En>
             <Fr>pour du typeage</Fr>)

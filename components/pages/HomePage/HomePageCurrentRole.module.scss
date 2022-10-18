@@ -1,25 +1,38 @@
 @use "styles/spacing" as *;
 @use "styles/breakpoints" as *;
+@use "styles/typography" as *;
 
 .HomePageCurrentRole {
-  color: white;
+  margin-top: $space-xxl;
 }
 
 .HomePageCurrentRole__header {
   margin-bottom: $space-xl;
+  font-weight: bold;
 }
 
 .HomePageCurrentRole__title {
-  margin: 0 0 $space-l;
+  margin: 0;
+  line-height: 1.125;
+  font-size: $size-xxl;
 }
 
 .HomePageCurrentRole__subtitle {
-  margin: 0 0 $space-s;
+  margin: 0;
+  line-height: 1.125;
+  font-size: $size-xl;
+  color: $color-text-alt;
+}
+
+.HomePageCurrentRole__company {
+  margin: $space-s 0;
+  font-size: $size-l;
 }
 
 .HomePageCurrentRole__body {
   @include screen-medium {
     display: flex;
+    gap: $space-l + $space-m;
   }
 }
 

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import useTranslation from "../../../utils/hooks/useTranslation";
 
+import styles from "./Footer.module.scss";
+
 const dictionary = {
   footerCopyright: {
     en: "&copy; Christopher Borchert 2017 - present",
@@ -14,10 +16,10 @@ const dictionary = {
 const Footer = () => {
   const t = useTranslation(dictionary);
   return (
-    <footer>
+    <footer className={styles.Footer}>
       <p>{t("footerCopyright")}</p>
       <nav>
-        <ul>
+        <ul className={styles.Footer__links}>
           <li>
             <Link href="mailto:christopher.borchert@gmail.com" target="_blank">
               Email

@@ -2,8 +2,6 @@
 // TYPOGRAPHY: functions, variables, and mixins for text and fonts //
 /////////////////////////////////////////////////////////////////////
 
-@use "scale" as *;
-@use "spacing" as *;
 @use "colors" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap");
@@ -12,31 +10,19 @@ $font-sans: "Inter", "Helvetica", "Arial", sans-serif;
 $font-heading: $font-sans;
 $font-body: $font-sans;
 
-$font-scale: $scale-minor-3;
 $font-size: 1.8rem;
 
-// scale, but for font sizes
-@function size($factor: 0) {
-  @return scale($font-size, $font-scale, $factor);
-}
-
-@mixin header($i) {
-  font-size: size(5-$i); // h1 is size 4, h2 is size 3... h5 is size 0
-  margin: $space-xl 0 $space-m;
-  font-family: $font-heading;
-  font-weight: bold;
-  font-style: normal;
-  line-height: 1.25;
-}
-
-$size-xxs: size(-1.5);
-$size-xs: size(-1);
-$size-s: size(-0.5);
-$size-m: $font-size;
-$size-l: size(1);
-$size-xl: size(2);
-$size-xxl: size(3);
+$size-xxs: 1.2rem;
+$size-xs: 1.4rem;
+$size-s: 1.6rem;
+$size-m: 1.8rem;
+$size-l: 2.4rem;
+$size-xl: 3.6rem;
+$size-xxl: 4.8rem;
+$size-cataclysmic: 6rem;
+$size-apocalyptic: 7.2rem;
 
 $color-text: $black;
+$color-text-alt: $gray;
 $color-link: $blue;
 $color-link-hover: $blue-light;

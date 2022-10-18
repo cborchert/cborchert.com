@@ -61,14 +61,3 @@ a {
     }
   }
 }
-
-// headers
-@for $i from 1 through 5 {
-  h#{$i},
-  .h#{$i} {
-    @include header($i);
-    &.no-margin {
-      margin: 0;
-    }
-  }
-}

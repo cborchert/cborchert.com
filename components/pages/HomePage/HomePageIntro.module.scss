@@ -1,34 +1,40 @@
+@use "styles/colors" as *;
+@use "styles/typography" as *;
 @use "styles/spacing" as *;
 @use "styles/breakpoints" as *;
 
 .HomePageIntro__text {
-  margin: $space-m auto $space-xl + $space-l;
+  margin: 0 auto $space-xl;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .HomePageIntro__title {
-  margin-top: 0;
+  font-size: $size-l;
+  color: $color-link;
 }
 
 .HomePageIntro__description {
-  margin-top: $space-s + $space-m;
+  font-size: $size-l;
   font-weight: 200;
-  font-size: clamp(2.5rem, 2vw, 3rem);
 
-  p {
-    line-height: 1.5;
-    margin-bottom: 0;
-  }
+  line-height: 1.5;
 
   em {
-    font-weight: 400;
+    font-weight: bold;
     font-style: normal;
   }
+}
 
-  @include screen-small {
-    font-size: 2rem;
-    font-weight: 400;
-    em {
-      font-weight: bold;
-    }
+.HomePageIntro__mainLine {
+  font-size: $size-cataclysmic;
+  margin-top: $space-m;
+  margin-bottom: $space-l;
+  line-height: 1.125;
+
+  em {
+    font-size: $size-apocalyptic;
   }
 }

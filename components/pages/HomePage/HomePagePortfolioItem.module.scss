@@ -1,0 +1,90 @@
+@use "styles/typography" as *;
+@use "styles/spacing" as *;
+@use "styles/colors" as *;
+
+.HomePagePortfolioItem {
+  background: $white;
+  position: relative;
+  overflow: hidden;
+}
+
+.HomePagePortfolioItem__loResCoverImage {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  filter: blur(4px);
+}
+
+.HomePagePortfolioItem__video {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.HomePagePortfolioItem__content {
+  display: flex;
+  flex-direction: column;
+  padding: $space-m;
+  height: 100%;
+  color: $white;
+
+  background: rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 2px rgb(0 0 0 / 50%);
+  position: relative;
+  transition: 400ms;
+}
+
+.HomePagePortfolioItem__title {
+  font-size: $size-l;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.HomePagePortfolioItem__date {
+  font-size: $size-xs;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.HomePagePortfolioItem__description {
+  font-size: $size-s;
+  flex-grow: 1;
+}
+
+.HomePagePortfolioItem__descriptionText {
+  opacity: 0;
+  transition: 400ms;
+  position: relative;
+  top: 40px;
+}
+
+.HomePagePortfolioItem__link {
+  font-size: $size-s;
+  font-weight: bold;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.HomePagePortfolioItem__title,
+.HomePagePortfolioItem__linkText {
+  &,
+  &:hover {
+    color: $white;
+  }
+}
+
+.HomePagePortfolioItem:hover {
+  .HomePagePortfolioItem__descriptionText {
+    top: 0;
+    opacity: 1;
+  }
+  .HomePagePortfolioItem__content {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

@@ -1,17 +1,21 @@
 @use "styles/spacing" as *;
 @use "styles/breakpoints" as *;
+@use "styles/typography" as *;
 
 .HomePageCurrentStack {
   padding: $space-xl 0;
   font-weight: bold;
-  color: white;
 }
 
 .HomePageCurrentStack__title {
-  margin-bottom: $space-l;
+  margin-bottom: $space-m;
+  font-size: $size-xxl;
 }
 
 .HomePageCurrentStack__content {
+  font-size: $size-l;
+  color: $color-text-alt;
+
   @include screen-medium {
     display: flex;
   }

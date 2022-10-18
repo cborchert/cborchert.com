@@ -1,0 +1,6 @@
+@use "styles/spacing" as *;
+@use "styles/colors" as *;
+
+.Page {
+  border-left: $space-m solid $blue;
+}

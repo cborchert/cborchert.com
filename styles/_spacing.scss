@@ -2,22 +2,10 @@
 // SPACING: functions, variables, and mixins for vertical and horizontal rhythm/spacing //
 //////////////////////////////////////////////////////////////////////////////////////////
 
-@use "scale" as *;
-
-// space-size based on https://type-scale.com/
-$space-scale: $scale-double;
-$space-default: 0.8rem;
-
-// scale, but for spaces (margin, padding, etc.)
-@function space($factor: 0) {
-  @return scale($space-default, $space-scale, $factor);
-}
-
-$space-xxxs: space(-3);
-$space-xxs: space(-2);
-$space-xs: space(-1);
-$space-s: $space-default;
-$space-m: space(1);
-$space-l: space(2);
-$space-xl: space(3);
-$space-xxl: space(4);
+$space-xxs: 2px;
+$space-xs: 4px;
+$space-s: 8px;
+$space-m: 16px;
+$space-l: 32px;
+$space-xl: 64px;
+$space-xxl: 128px;

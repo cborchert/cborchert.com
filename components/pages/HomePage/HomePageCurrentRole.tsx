@@ -1,16 +1,19 @@
-import classNames from "classnames";
 import useTranslation from "../../../utils/hooks/useTranslation";
 import Section from "../../atoms/Section/Section";
 import styles from "./HomePageCurrentRole.module.scss";
 
 const dictionary = {
   currentRole: {
-    en: "Current Role:",
-    fr: "Rôle actuel :",
+    en: "Current Role",
+    fr: "Rôle actuel",
   },
-  jsDevAndScrum: {
-    en: "JavaScript Developer & Scrum Master",
-    fr: "Développeur JavaScript & Scrum Master",
+  jsDevAndScrumLine1: {
+    en: "JavaScript Developer",
+    fr: "Développeur JavaScript",
+  },
+  jsDevAndScrumLine2: {
+    en: "& Scrum Master",
+    fr: "& Scrum Master",
   },
   renault: {
     en: "Renault Group",
@@ -104,19 +107,19 @@ const HomePageCurrentRole = () => {
 
   return (
     <Section className={styles.HomePageCurrentRole}>
-      <div className={styles.HomePageCurrentRole__header}>
-        <p className={classNames("h1", styles.HomePageCurrentRole__title)}>
-          {t("currentRole")}
-        </p>
-        <p className={classNames("h3", styles.HomePageCurrentRole__subtitle)}>
-          {t("jsDevAndScrum")}
-        </p>
-        <p className={classNames("h3", styles.HomePageCurrentRole__subtitle)}>
-          {t("renault")}
-        </p>
-      </div>
       <div className={styles.HomePageCurrentRole__body}>
-        <div className={styles.HomePageCurrentRole__bodyImages}></div>
+        <div className={styles.HomePageCurrentRole__header}>
+          <p className={styles.HomePageCurrentRole__title}>
+            {t("currentRole")}
+          </p>
+          <p className={styles.HomePageCurrentRole__subtitle}>
+            {t("jsDevAndScrumLine1")}
+          </p>
+          <p className={styles.HomePageCurrentRole__subtitle}>
+            {t("jsDevAndScrumLine2")}
+          </p>
+          <p className={styles.HomePageCurrentRole__company}>{t("renault")}</p>
+        </div>
         <div className={styles.HomePageCurrentRole__bodyCopy}>
           {t("roleDescription")}
         </div>

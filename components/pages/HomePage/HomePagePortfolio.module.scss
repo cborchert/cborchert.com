@@ -1,2 +1,14 @@
-.HomePagePortfolio {
+@use "styles/typography" as *;
+@use "styles/spacing" as *;
+
+.HomePagePortfolio__title {
+  font-size: $size-xxl;
+  font-weight: bold;
+  margin-bottom: $space-l;
+}
+
+.HomePagePortfolio__items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: $space-l;
 }

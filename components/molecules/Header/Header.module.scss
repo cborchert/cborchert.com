@@ -1,10 +1,18 @@
 @use "styles/spacing" as *;
+@use "styles/colors" as *;
 @use "styles/breakpoints" as *;
 
 .Header {
   display: flex;
   justify-content: space-between;
   padding: $space-m;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $white;
+  border-left: $space-m solid $blue;
+  z-index: 1;
 
   @include screen-medium {
     padding: $space-m $space-l;

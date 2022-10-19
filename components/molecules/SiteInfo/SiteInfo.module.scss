@@ -13,4 +13,16 @@
 
 .SiteInfo__position {
   letter-spacing: 0.4px;
+  margin-bottom: 0;
+}
+
+.SiteInfo__avatarContainer {
+  width: 100px;
+  height: 100px;
+  transition: 200ms;
+
+  &.SiteInfo__avatarContainer_small {
+    width: 70px;
+    height: 70px;
+  }
 }

@@ -56,11 +56,11 @@ const HomePagePortfolioItem = ({
           <a className={styles.HomePagePortfolioItem__title}>{title}</a>
         </Link>
         <p className={styles.HomePagePortfolioItem__date}>{date}</p>
-        <p className={styles.HomePagePortfolioItem__description}>
+        <div className={styles.HomePagePortfolioItem__description}>
           <p className={styles.HomePagePortfolioItem__descriptionText}>
             {description}
           </p>
-        </p>
+        </div>
         <div className={styles.HomePagePortfolioItem__link}>
           <Link href={href} className={styles.HomePagePortfolioItem__link}>
             <a className={styles.HomePagePortfolioItem__linkText}>

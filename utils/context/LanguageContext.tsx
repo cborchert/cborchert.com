@@ -1,13 +1,11 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useCallback, useContext, useEffect } from "react";
 
 import type { Language } from "../../constants/Languages";
 import { LANGUAGES } from "../../constants/Languages";
+import {
+  useLocalStorageState,
+  getParsedLocalValue,
+} from "../hooks/useLocalStorageState";
 
 type LanguageContext = {
   language: Language;
@@ -29,7 +27,10 @@ const LanguageContext = createContext<LanguageContext>({
 });
 
 const LanguageProvider = ({ children }: Props) => {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useLocalStorageState<Language>(
+    "en",
+    "language"
+  );
 
   const toggleLanguage = useCallback(() => {
     if (language === LANGUAGES.EN) {
@@ -44,12 +45,18 @@ const LanguageProvider = ({ children }: Props) => {
       "lang"
     );
     const preferredLanguage = window.navigator.language;
+    const savedLanguage = getParsedLocalValue("language");
 
     let newLanguage: Language = LANGUAGES.EN;
 
-    // the queried language trumps everything
-    // TODO: Object.values(LANGUAGES).includes(queriedLanguage) throws an error. Why?
-    if (queriedLanguage === LANGUAGES.FR || queriedLanguage === LANGUAGES.EN) {
+    if (savedLanguage === LANGUAGES.FR || savedLanguage === LANGUAGES.EN) {
+      newLanguage = savedLanguage;
+    } else if (
+      queriedLanguage === LANGUAGES.FR ||
+      queriedLanguage === LANGUAGES.EN
+    ) {
+      // TODO: Object.values(LANGUAGES).includes(queriedLanguage) throws an error. Why?
+      // the queried language trumps everything
       newLanguage = queriedLanguage;
     } else {
       // if the user prefers French, we'll use that
@@ -59,7 +66,9 @@ const LanguageProvider = ({ children }: Props) => {
       }
     }
 
-    setLanguage(newLanguage);
+    if (newLanguage !== language) {
+      setLanguage(newLanguage);
+    }
   }, []);
 
   return (

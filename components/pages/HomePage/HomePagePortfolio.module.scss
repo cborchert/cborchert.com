@@ -1,5 +1,6 @@
 @use "styles/typography" as *;
 @use "styles/spacing" as *;
+@use "styles/breakpoints" as *;
 
 .HomePagePortfolio {
   padding-top: $space-clear-header;
@@ -13,6 +14,10 @@
 
 .HomePagePortfolio__items {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: $space-l;
+
+  @include screen-medium {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

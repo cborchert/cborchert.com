@@ -70,6 +70,7 @@ h6 {
 // 10. 1rem = 10px
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 // 11. remove default button styles see: https://stackoverflow.com/questions/2460100/remove-the-complete-styling-of-an-html-button-submit

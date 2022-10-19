@@ -1,6 +1,7 @@
 @use "styles/spacing" as *;
 @use "styles/typography" as *;
 @use "styles/breakpoints" as *;
+@use "styles/colors" as *;
 
 .MainMenu__item {
   list-style: none;
@@ -13,6 +14,64 @@
 .MainMenu__list {
   @include screen-medium {
     display: flex;
-    gap: $space-m;
+    gap: $space-l;
   }
+}
+
+.MainMenu__drawer {
+  position: fixed;
+  top: calc(100vh + $space-l);
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $blue;
+  transition: 200ms;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.MainMenu__drawer_open {
+    top: 0;
+  }
+}
+
+.MainMenu__drawerClose {
+  position: absolute;
+  top: $space-m;
+  right: $space-m;
+}
+
+.MainMenu__drawerClose {
+  color: $white;
+  opacity: 0.7;
+  transition: 200ms;
+
+  &:hover {
+    color: $white;
+    opacity: 1;
+  }
+}
+
+.MainMenu__drawerClose,
+.MainMenu__drawerLink {
+  &,
+  &:hover {
+    color: $white;
+  }
+}
+
+.MainMenu__drawerItems {
+  font-size: $size-xl;
+  display: flex;
+  font-weight: bold;
+  flex-direction: column;
+  gap: $space-l;
+  margin: 0;
+  padding: 0;
+}
+
+.MainMenu__drawerItem {
+  list-style: none;
 }

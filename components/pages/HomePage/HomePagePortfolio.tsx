@@ -99,7 +99,7 @@ const portfolioItems = [
 const HomePagePortfolio = () => {
   const t = useTranslation(dictionary);
   return (
-    <Section>
+    <Section className={styles.HomePagePortfolio}>
       <p className={styles.HomePagePortfolio__title}>{t("portfolio")}</p>
       <div className={styles.HomePagePortfolio__items}>
         {portfolioItems.map(({ descriptionKey, ...rest }) => (

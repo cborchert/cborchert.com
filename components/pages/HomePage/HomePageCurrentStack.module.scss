@@ -3,7 +3,7 @@
 @use "styles/typography" as *;
 
 .HomePageCurrentStack {
-  padding: $space-xl 0;
+  padding: $space-clear-header 0 $space-xl;
   font-weight: bold;
 }
 

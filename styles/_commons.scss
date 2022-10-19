@@ -44,7 +44,8 @@ blockquote {
   font-style: italic;
 }
 
-a {
+a,
+.link {
   color: $color-link;
   text-decoration: none;
 
@@ -52,6 +53,18 @@ a {
 
   &:hover {
     color: $color-link-hover;
+  }
+
+  &.large-underline {
+    &:after {
+      height: 4px;
+    }
+  }
+
+  &.huge-underline {
+    &:after {
+      height: 8px;
+    }
   }
 
   &.is-color-text {

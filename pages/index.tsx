@@ -8,10 +8,15 @@ import HomePageGetInTouch from "../components/pages/HomePage/HomePageGetInTouch"
 
 const Home: NextPage = () => (
   <>
+    <div id="home"></div>
     <HomePageIntro />
+    <div id="portfolio"></div>
     <HomePagePortfolio />
+    <div id="role"></div>
     <HomePageCurrentRole />
+    <div id="stack"></div>
     <HomePageCurrentStack />
+    <div id="hire"></div>
     <HomePageGetInTouch />
   </>
 );

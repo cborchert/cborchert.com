@@ -1,6 +1,12 @@
+import { useState } from "react";
 import Link from "next/link";
+import classNames from "classnames";
+
 import useTranslation from "../../../utils/hooks/useTranslation";
+
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
+import En from "../../atoms/En/En";
+import Fr from "../../atoms/Fr/Fr";
 
 import styles from "./MainMenu.module.scss";
 
@@ -10,12 +16,16 @@ const dictionary = Object.freeze({
     fr: "Accueil",
   },
   menuWork: {
-    en: "Work",
+    en: "Portfolio",
     fr: "Portfolio",
   },
-  menuAbout: {
-    en: "About",
-    fr: "À propos",
+  menuRole: {
+    en: "Current Role",
+    fr: "Rôle actuel",
+  },
+  menuStack: {
+    en: "Current Stack",
+    fr: "Stack Actuel",
   },
   menuAvailability: {
     en: "Availability",
@@ -25,10 +35,11 @@ const dictionary = Object.freeze({
 
 const links: Array<{ href: string; translationKey: keyof typeof dictionary }> =
   [
-    { href: "/", translationKey: "menuHome" },
-    { href: "/work", translationKey: "menuWork" },
-    { href: "/about", translationKey: "menuAbout" },
-    { href: "/availability", translationKey: "menuAvailability" },
+    { href: "/#home", translationKey: "menuHome" },
+    { href: "/#portfolio", translationKey: "menuWork" },
+    { href: "/#role", translationKey: "menuRole" },
+    { href: "/#stack", translationKey: "menuStack" },
+    { href: "/#hire", translationKey: "menuAvailability" },
   ];
 
 /**
@@ -36,22 +47,56 @@ const links: Array<{ href: string; translationKey: keyof typeof dictionary }> =
  */
 const MainMenu = () => {
   const t = useTranslation(dictionary);
+  const [isMenuDrawerOpen, setIsMenuDrawerOpen] = useState<boolean>(false);
 
   return (
-    <nav>
-      <ul className={styles.MainMenu__list}>
-        <li className={styles.MainMenu__item}>
-          <LanguageToggle />
-        </li>
-        {/* {links.map(({ href, translationKey }) => (
-          <li key={href} className={styles.MainMenu__item}>
-            <Link href={href}>
-              <a className="is-color-text">{t(translationKey)}</a>
-            </Link>
+    <>
+      <nav>
+        <ul className={styles.MainMenu__list}>
+          <li className={styles.MainMenu__item}>
+            <LanguageToggle />
           </li>
-        ))} */}
-      </ul>
-    </nav>
+          <li className={styles.MainMenu__item}>
+            <button
+              className="link is-color-text"
+              onClick={() => setIsMenuDrawerOpen(true)}
+            >
+              menu
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className={classNames(styles.MainMenu__drawer, {
+          [styles.MainMenu__drawer_open]: isMenuDrawerOpen,
+        })}
+      >
+        <button
+          className={styles.MainMenu__drawerClose}
+          onClick={() => setIsMenuDrawerOpen(false)}
+        >
+          <En>close</En>
+          <Fr>fermer</Fr>
+        </button>
+        <ul className={styles.MainMenu__drawerItems}>
+          {links.map(({ href, translationKey }) => (
+            <li key={href} className={styles.MainMenu__drawerItem}>
+              <Link href={href}>
+                <a
+                  className={classNames(
+                    styles.MainMenu__drawerLink,
+                    "huge-underline"
+                  )}
+                  onClick={() => setIsMenuDrawerOpen(false)}
+                >
+                  {t(translationKey)}
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

@@ -52,22 +52,28 @@ const HomePagePortfolioItem = ({
         </div>
       )}
       <div className={styles.HomePagePortfolioItem__content}>
-        <Link href={href} className={styles.HomePagePortfolioItem__link}>
-          <a className={styles.HomePagePortfolioItem__title}>{title}</a>
-        </Link>
+        {href ? (
+          <Link href={href} className={styles.HomePagePortfolioItem__link}>
+            <a className={styles.HomePagePortfolioItem__title}>{title}</a>
+          </Link>
+        ) : (
+          <span className={styles.HomePagePortfolioItem__title}>{title}</span>
+        )}
         <p className={styles.HomePagePortfolioItem__date}>{date}</p>
         <div className={styles.HomePagePortfolioItem__description}>
           <p className={styles.HomePagePortfolioItem__descriptionText}>
             {description}
           </p>
         </div>
-        <div className={styles.HomePagePortfolioItem__link}>
-          <Link href={href} className={styles.HomePagePortfolioItem__link}>
-            <a className={styles.HomePagePortfolioItem__linkText}>
-              {t("viewProject")}
-            </a>
-          </Link>
-        </div>
+        {href && (
+          <div className={styles.HomePagePortfolioItem__link}>
+            <Link href={href} className={styles.HomePagePortfolioItem__link}>
+              <a className={styles.HomePagePortfolioItem__linkText}>
+                {t("viewProject")}
+              </a>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

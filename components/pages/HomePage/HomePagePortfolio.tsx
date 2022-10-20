@@ -1,5 +1,6 @@
 import useTranslation from "../../../utils/hooks/useTranslation";
 import Section from "../../atoms/Section/Section";
+import HomePagePortfolioItemV2 from "./HomePagePortfolioItemV2";
 import HomePagePortfolioItem from "./HomePagePortfolioItem";
 
 import styles from "./HomePagePortfolio.module.scss";
@@ -48,6 +49,8 @@ const portfolioItems = [
     video: "/media/nci-cover.mp4",
     loResCoverImage: "/media/nci-cover.jpg",
     bgColor: "#fff",
+    stack: ["react", "redux", "flow", "scss", "node"],
+    link: "https://www.renault.fr/achat-vehicules-neufs.html",
   },
   {
     title: "Digital Pride Fest",
@@ -57,6 +60,7 @@ const portfolioItems = [
     video: "/media/digital-pride-fest-cover.mp4",
     loResCoverImage: "/media/digital-pride-fest-cover.jpg",
     bgColor: "#00b5b7",
+    stack: ["react", "next", "node", "mongo", "mux", "stripe", "websockets"],
   },
   {
     title: "Hyperloop One Routes Calculator",
@@ -66,6 +70,7 @@ const portfolioItems = [
     video: "/media/hyperloop-cover.mp4",
     loResCoverImage: "/media/hyperloop-cover.jpg",
     bgColor: "#3f4456",
+    stack: ["react", "svg", "phantomjs", "aws", "node"],
   },
   {
     title: "5sg",
@@ -75,6 +80,10 @@ const portfolioItems = [
     video: "/media/5sg-cover.mp4",
     loResCoverImage: "/media/5sg-cover.jpg",
     bgColor: "#fff",
+    stack: ["svelte", "rollup", "remark", "node"],
+    github: "https://github.com/cborchert/5sg",
+    npm: "https://www.npmjs.com/package/5sg",
+    link: "https://5sg.netlify.app/",
   },
   {
     title: "Axel's Adventure",
@@ -84,6 +93,9 @@ const portfolioItems = [
     video: "/media/axels-adventure-cover.mp4",
     loResCoverImage: "/media/axels-adventure-cover.jpg",
     bgColor: "#043b3b",
+    stack: ["js", "pixi"],
+    github: "https://github.com/cborchert/adventure",
+    link: "https://axels-adventure.netlify.app/",
   },
   {
     title: "Game Boy Gift",
@@ -93,6 +105,9 @@ const portfolioItems = [
     video: "/media/game-boy-gift-cover.mp4",
     loResCoverImage: "/media/game-boy-gift-cover.jpg",
     bgColor: "#18b490",
+    stack: ["js", "react", "scss", "howler"],
+    github: "https://github.com/cborchert/gameboy",
+    link: "https://game-boy-gift.netlify.app/",
   },
 ];
 
@@ -101,9 +116,10 @@ const HomePagePortfolio = () => {
   return (
     <Section className={styles.HomePagePortfolio}>
       <p className={styles.HomePagePortfolio__title}>{t("portfolio")}</p>
-      <div className={styles.HomePagePortfolio__items}>
-        {portfolioItems.map(({ descriptionKey, ...rest }) => (
-          <HomePagePortfolioItem
+      <div>
+        {portfolioItems.map(({ descriptionKey, ...rest }, i) => (
+          <HomePagePortfolioItemV2
+            left={i % 2 !== 0}
             key={rest.title}
             description={t(descriptionKey) || ""}
             {...rest}

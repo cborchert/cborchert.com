@@ -6,7 +6,7 @@ import HomePageCurrentStack from "../components/pages/HomePage/HomePageCurrentSt
 import HomePagePortfolio from "../components/pages/HomePage/HomePagePortfolio";
 import HomePageGetInTouch from "../components/pages/HomePage/HomePageGetInTouch";
 
-const Home: NextPage = () => (
+const PageHome: NextPage = () => (
   <>
     <div id="home"></div>
     <HomePageIntro />
@@ -21,4 +21,4 @@ const Home: NextPage = () => (
   </>
 );
 
-export default Home;
+export default PageHome;

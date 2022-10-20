@@ -14,7 +14,6 @@
 
 .HomePageCurrentStack__content {
   font-size: $size-l;
-  color: $color-text-alt;
 
   @include screen-medium {
     display: flex;
@@ -27,5 +26,6 @@
 }
 
 .HomePageCurrentStack__technologies {
+  color: $color-text-alt;
   line-height: 1.5;
 }

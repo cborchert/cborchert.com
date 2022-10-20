@@ -25,4 +25,9 @@
     width: 70px;
     height: 70px;
   }
+
+  @media (prefers-reduced-motion) {
+    width: 70px;
+    height: 70px;
+  }
 }

@@ -7,7 +7,7 @@ import styles from "./HomePagePortfolio.module.scss";
 const dictionary = {
   portfolio: {
     en: "Featured Work",
-    fr: "Travaux",
+    fr: "Portfolio",
   },
   viewProject: {
     en: "View Project",
@@ -27,7 +27,7 @@ const dictionary = {
   },
   gameBoyGiftDescription: {
     en: "For my brother’s birthday, I simulated a Game Boy and A Link To the Past with simulated functionality. When you put in the appropriate code, it gives you a birthday gift.",
-    fr: "Pour l'anniversaire de mon frère...",
+    fr: "Pour l'anniversaire de mon frère lorem ipsum dolor sit amet adem potentas etiam inveniuntur ",
   },
   axelsAdventureDescription: {
     en: "A personal project made for the birthday of a coworker. Full of inside jokes, this sidescrolling game allowed me to work with technologies I normally wouldn’t in my day job.",

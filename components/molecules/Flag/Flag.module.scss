@@ -4,7 +4,9 @@
   --flag-white: #ecf0f1;
   --flag-black: #34495e;
   div {
-    transition: 400ms;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: 400ms;
+    }
   }
 
   // france by default ;)
@@ -53,14 +55,18 @@
       background: white;
       content: " ";
       border-radius: 100%;
-      transition: 200ms;
+      @media (prefers-reduced-motion: no-preference) {
+        transition: 200ms;
+      }
     }
     &:nth-child(11n-4) {
       margin-left: calc(100% / 12);
     }
     @for $i from 0 through 50 {
       &:nth-child(#{$i}):after {
-        transition-delay: calc(400ms - (#{$i}) * 5ms);
+        @media (prefers-reduced-motion: no-preference) {
+          transition-delay: calc(400ms - (#{$i}) * 5ms);
+        }
       }
     }
   }
@@ -80,7 +86,9 @@
       background: var(--flag-white);
       @for $i from 0 through 13 {
         &:nth-child(#{$i}) {
-          transition-delay: calc(400ms - (#{$i}) * 30ms);
+          @media (prefers-reduced-motion: no-preference) {
+            transition-delay: calc(400ms - (#{$i}) * 30ms);
+          }
         }
       }
     }
@@ -104,7 +112,9 @@
         }
         @for $i from 0 through 50 {
           &:nth-child(#{$i}):after {
-            transition-delay: calc(100ms + #{$i} * 10ms);
+            @media (prefers-reduced-motion: no-preference) {
+              transition-delay: calc(100ms + #{$i} * 10ms);
+            }
           }
         }
       }
@@ -116,7 +126,9 @@
           flex: 1;
           @for $i from 0 through 13 {
             &:nth-child(#{$i}) {
-              transition-delay: calc(300ms + (13 - #{$i}) * 20ms);
+              @media (prefers-reduced-motion: no-preference) {
+                transition-delay: calc(300ms + (13 - #{$i}) * 20ms);
+              }
             }
           }
         }

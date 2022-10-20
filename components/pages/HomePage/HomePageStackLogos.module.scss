@@ -1,0 +1,87 @@
+@use "sass:math";
+@use "sass:list";
+
+@function angleToRadians($angle) {
+  @return ($angle / 360) * math.$pi * 2;
+}
+
+@function getPositionOnCircle($circleRadius, $angle) {
+  $radians: angleToRadians($angle);
+
+  $x: floor($circleRadius * math.cos($radians));
+  $y: floor($circleRadius * math.sin($radians));
+
+  @return ($x, $y);
+}
+
+$rotationTime: 200s;
+
+.HomePageStackLogos {
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+  position: relative;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rotate $rotationTime infinite linear;
+  }
+}
+
+.HomePageStackLogos__logo {
+  width: 60px;
+  border-radius: 50%;
+  border-radius: 50px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: 200ms;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: counterActRotate $rotationTime linear infinite;
+  }
+
+  @for $i from 1 through 8 {
+    $angle: 360 / 8 * $i;
+    $position: getPositionOnCircle(100px, $angle);
+
+    &:nth-child(#{$i}) {
+      top: calc(50% + list.nth($position, 2));
+      left: calc(50% + list.nth($position, 1));
+    }
+  }
+}
+
+.HomePageStackLogos:hover {
+  .HomePageStackLogos__logo {
+    width: 100px;
+    @for $i from 1 through 8 {
+      $angle: 360 / 8 * $i;
+      $position: getPositionOnCircle(200px, $angle);
+
+      &:nth-child(#{$i}) {
+        top: calc(50% + list.nth($position, 2));
+        left: calc(50% + list.nth($position, 1));
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes counterActRotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}

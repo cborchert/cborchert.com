@@ -13,12 +13,6 @@
   video {
     width: 100%;
   }
-
-  &:hover {
-    .HomePagePortfolioItem__video {
-      filter: blur(2px);
-    }
-  }
 }
 
 .HomePagePortfolioItem__loResCoverImage {
@@ -47,7 +41,8 @@
   height: 100%;
   color: $white;
 
-  background: rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+  background: rgba(0, 0, 0, 0.2);
   text-shadow: 2px 2px 2px rgb(0 0 0 / 50%);
   position: relative;
   transition: 400ms;
@@ -82,6 +77,8 @@
   font-weight: bold;
   text-align: right;
   text-transform: uppercase;
+  opacity: 0;
+  transition: 400ms;
 }
 
 .HomePagePortfolioItem__title,
@@ -97,7 +94,14 @@
     top: 0;
     opacity: 1;
   }
+  .HomePagePortfolioItem__link {
+    opacity: 1;
+  }
   .HomePagePortfolioItem__content {
+    opacity: 1;
     background: rgba(0, 0, 0, 0.7);
+  }
+  .HomePagePortfolioItem__video {
+    filter: blur(2px);
   }
 }

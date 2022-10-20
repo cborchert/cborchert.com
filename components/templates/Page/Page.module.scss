@@ -1,6 +1,9 @@
 @use "styles/spacing" as *;
 @use "styles/colors" as *;
+@use "styles/typography" as *;
 
 .Page {
   border-left: $space-m solid $blue;
+  background: $white;
+  color: $color-text;
 }

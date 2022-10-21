@@ -35,7 +35,7 @@ const HomePagePortfolioItem = ({
   date: string;
   description: string | React.ReactElement;
   video?: string;
-  href: string;
+  href?: string;
   bgColor?: string;
   loResCoverImage?: string;
   stack?: string[];

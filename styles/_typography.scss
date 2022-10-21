@@ -16,11 +16,12 @@ $size-xxs: 1.2rem;
 $size-xs: 1.4rem;
 $size-s: 1.6rem;
 $size-m: 1.8rem;
-$size-l: 2.4rem;
+$size-l: clamp(2rem, 4vw, 2.4rem);
+$size-larger: 2.8rem;
 $size-xl: 3.6rem;
-$size-xxl: 4.8rem;
-$size-cataclysmic: 6rem;
-$size-apocalyptic: 7.2rem;
+$size-xxl: clamp(4rem, 5vw, 4.8rem);
+$size-cataclysmic: clamp($size-larger, 8vw, 6rem);
+$size-apocalyptic: clamp($size-xl, 10vw, 7.2rem);
 
 $color-text: $black;
 $color-text-alt: $blue;

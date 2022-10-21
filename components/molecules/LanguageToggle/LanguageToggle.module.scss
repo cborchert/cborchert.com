@@ -1,5 +1,6 @@
 @use "styles/colors" as *;
 @use "styles/typography" as *;
+@use "styles/breakpoints" as *;
 
 .LanguageToggle {
   text-transform: uppercase;
@@ -8,10 +9,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 
   .LanguageToggle__info {
     opacity: 0;
     transition: 400ms 200ms;
+    display: none;
+
+    @include screen-medium {
+      display: block;
+    }
   }
 
   &:focus {

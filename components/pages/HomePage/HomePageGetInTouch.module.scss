@@ -3,7 +3,11 @@
 @use "styles/typography" as *;
 
 .HomePageGetInTouch {
-  padding: ($space-clear-header + $space-xl) 0 ($space-xxl + $space-l);
+  padding: ($space-clear-header + $space-xl) 0 $space-xxxl;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .HomePageGetInTouch__title {

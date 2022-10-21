@@ -1,16 +1,24 @@
 @use "styles/spacing" as *;
 @use "styles/typography" as *;
+@use "styles/breakpoints" as *;
 
 .Footer {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding: $space-m $space-l;
   font-size: $size-s;
+
+  @include screen-medium {
+    flex-direction: row;
+  }
 }
 
 .Footer__links {
   display: flex;
   gap: $space-m;
+  margin: 0;
+  padding: 0;
 
   li {
     list-style: none;

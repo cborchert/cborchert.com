@@ -1,6 +1,7 @@
 @use "styles/colors" as *;
+@use "styles/breakpoints" as *;
 
-.Flag {
+@mixin france {
   --flag-blue: #3498db;
   --flag-red: #e74c3c;
   --flag-white: #ecf0f1;
@@ -27,114 +28,128 @@
     top: 0;
     height: var(--flag-height);
   }
-}
 
-.Flag__blue {
-  --flag-blue-w: calc(var(--flag-width) / 3);
-  --flag-blue-h: var(--flag-height);
-  left: 0;
-  background: var(--flag-blue);
-  z-index: 2;
-  padding: calc(var(--flag-blue-h) / 20) calc(var(--flag-blue-w) / 24);
-  font-size: 0;
+  .Flag__blue {
+    --flag-blue-w: calc(var(--flag-width) / 3);
+    --flag-blue-h: var(--flag-height);
+    left: 0;
+    background: var(--flag-blue);
+    z-index: 2;
+    padding: calc(var(--flag-blue-h) / 20) calc(var(--flag-blue-w) / 24);
+    font-size: 0;
 
-  .Flag__star {
-    --flag-star-w: calc(100% / 6);
-    --flag-star-h: calc(100% / 9);
-    display: inline-block;
-    position: relative;
-    width: var(--flag-star-w);
-    height: var(--flag-star-h);
-    &:after {
-      --flag-star-size: calc(var(--flag-width) * 0.02);
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      width: 0;
-      height: 0;
-      background: white;
-      content: " ";
-      border-radius: 100%;
-      @media (prefers-reduced-motion: no-preference) {
-        transition: 200ms;
-      }
-    }
-    &:nth-child(11n-4) {
-      margin-left: calc(100% / 12);
-    }
-    @for $i from 0 through 50 {
-      &:nth-child(#{$i}):after {
+    .Flag__star {
+      --flag-star-w: calc(100% / 6);
+      --flag-star-h: calc(100% / 9);
+      display: inline-block;
+      position: relative;
+      width: var(--flag-star-w);
+      height: var(--flag-star-h);
+      &:after {
+        --flag-star-size: calc(var(--flag-width) * 0.02);
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 0;
+        height: 0;
+        background: white;
+        content: " ";
+        border-radius: 100%;
         @media (prefers-reduced-motion: no-preference) {
-          transition-delay: calc(400ms - (#{$i}) * 5ms);
+          transition: 200ms;
         }
       }
-    }
-  }
-}
-
-.Flag__red {
-  z-index: 1;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-
-  .Flag__stripe {
-    flex: 1;
-    background: var(--flag-red);
-    &:nth-child(2n) {
-      flex: 0;
-      background: var(--flag-white);
-      @for $i from 0 through 13 {
-        &:nth-child(#{$i}) {
+      &:nth-child(11n-4) {
+        margin-left: calc(100% / 12);
+      }
+      @for $i from 0 through 50 {
+        &:nth-child(#{$i}):after {
           @media (prefers-reduced-motion: no-preference) {
-            transition-delay: calc(400ms - (#{$i}) * 30ms);
+            transition-delay: calc(400ms - (#{$i}) * 5ms);
           }
         }
       }
     }
   }
+
+  .Flag__red {
+    z-index: 1;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+
+    .Flag__stripe {
+      flex: 1;
+      background: var(--flag-red);
+      &:nth-child(2n) {
+        flex: 0;
+        background: var(--flag-white);
+        @for $i from 0 through 13 {
+          &:nth-child(#{$i}) {
+            @media (prefers-reduced-motion: no-preference) {
+              transition-delay: calc(400ms - (#{$i}) * 30ms);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin usa {
+  .Flag__blue {
+    --flag-blue-x: calc(2 / 5 * 100%);
+    --flag-blue-y: calc(7 / 13 * 100%);
+    width: var(--flag-blue-x);
+    height: var(--flag-blue-y);
+    .Flag__star {
+      &:after {
+        width: var(--flag-star-size);
+        height: var(--flag-star-size);
+      }
+      @for $i from 0 through 50 {
+        &:nth-child(#{$i}):after {
+          @media (prefers-reduced-motion: no-preference) {
+            transition-delay: calc(100ms + #{$i} * 10ms);
+          }
+        }
+      }
+    }
+  }
+  .Flag__red {
+    width: 100%;
+    .Flag__stripe {
+      &:nth-child(2n) {
+        flex: 1;
+        @for $i from 0 through 13 {
+          &:nth-child(#{$i}) {
+            @media (prefers-reduced-motion: no-preference) {
+              transition-delay: calc(300ms + (13 - #{$i}) * 20ms);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.Flag {
+  @include france;
 }
 
 //USA!
-.Flag {
-  &.isUsa:not(:hover),
-  &:not(.isUsa):hover {
-    //   --flag-ratio: calc(10 / 19);
-    .Flag__blue {
-      --flag-blue-x: calc(2 / 5 * 100%);
-      --flag-blue-y: calc(7 / 13 * 100%);
-      width: var(--flag-blue-x);
-      height: var(--flag-blue-y);
-      .Flag__star {
-        &:after {
-          width: var(--flag-star-size);
-          height: var(--flag-star-size);
-        }
-        @for $i from 0 through 50 {
-          &:nth-child(#{$i}):after {
-            @media (prefers-reduced-motion: no-preference) {
-              transition-delay: calc(100ms + #{$i} * 10ms);
-            }
-          }
-        }
-      }
-    }
-    .Flag__red {
-      width: 100%;
-      .Flag__stripe {
-        &:nth-child(2n) {
-          flex: 1;
-          @for $i from 0 through 13 {
-            &:nth-child(#{$i}) {
-              @media (prefers-reduced-motion: no-preference) {
-                transition-delay: calc(300ms + (13 - #{$i}) * 20ms);
-              }
-            }
-          }
-        }
-      }
-    }
+.Flag.isUsa {
+  @include usa;
+}
+
+@include screen-medium {
+  .Flag.isUsa:hover {
+    @include france;
+  }
+
+  .Flag:not(.isUsa):hover {
+    @include usa;
   }
 }

@@ -10,19 +10,23 @@
 .HomePageCurrentStack__title {
   margin-bottom: $space-m;
   font-size: $size-xxl;
+  line-height: 1.125;
 }
 
 .HomePageCurrentStack__content {
   font-size: $size-l;
+  display: flex;
+  flex-direction: column-reverse;
 
-  @include screen-medium {
-    display: flex;
+  @include screen-large {
+    flex-direction: row;
   }
 }
 
 .HomePageCurrentStack__technologies,
 .HomePageCurrentStack__logos {
   flex: 1;
+  overflow: hidden;
 }
 
 .HomePageCurrentStack__technologies {

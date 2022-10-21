@@ -1,8 +1,13 @@
 @use "styles/spacing" as *;
+@use "styles/breakpoints" as *;
 
 .Section {
   padding: 0 $space-m;
-  margin: 0 auto;
+  margin: $space-l auto;
   width: 1024px;
   max-width: 100%;
+
+  @include screen-medium {
+    margin: $space-xl auto;
+  }
 }

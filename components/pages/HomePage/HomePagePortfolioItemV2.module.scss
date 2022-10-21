@@ -11,6 +11,10 @@
   justify-content: center;
   align-items: center;
   margin: $space-xl 0 $space-xxl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .HomePagePortfolioItem__cover {
@@ -66,8 +70,9 @@
 }
 
 .HomePagePortfolioItem__title {
-  font-size: $size-l;
+  font-size: $size-larger;
   font-weight: bold;
+  line-height: 1.125;
   margin: $space-xs 0;
   color: $color-link;
 }

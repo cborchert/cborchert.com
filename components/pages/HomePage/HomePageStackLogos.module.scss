@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "sass:list";
+@use "styles/breakpoints" as *;
 
 @function angleToRadians($angle) {
   @return ($angle / 360) * math.$pi * 2;
@@ -19,6 +20,7 @@ $rotationTime: 200s;
 .HomePageStackLogos {
   margin: 0 auto;
   height: 400px;
+  max-width: 100%;
   width: 400px;
   position: relative;
 
@@ -45,7 +47,7 @@ $rotationTime: 200s;
 
   @for $i from 1 through 8 {
     $angle: 360 / 8 * $i;
-    $position: getPositionOnCircle(100px, $angle);
+    $position: getPositionOnCircle(80px, $angle);
 
     &:nth-child(#{$i}) {
       top: calc(50% + list.nth($position, 2));
@@ -54,16 +56,18 @@ $rotationTime: 200s;
   }
 }
 
-.HomePageStackLogos:hover {
-  .HomePageStackLogos__logo {
-    width: 100px;
-    @for $i from 1 through 8 {
-      $angle: 360 / 8 * $i;
-      $position: getPositionOnCircle(200px, $angle);
+@include screen-medium {
+  .HomePageStackLogos:hover {
+    .HomePageStackLogos__logo {
+      width: 100px;
+      @for $i from 1 through 8 {
+        $angle: 360 / 8 * $i;
+        $position: getPositionOnCircle(150px, $angle);
 
-      &:nth-child(#{$i}) {
-        top: calc(50% + list.nth($position, 2));
-        left: calc(50% + list.nth($position, 1));
+        &:nth-child(#{$i}) {
+          top: calc(50% + list.nth($position, 2));
+          left: calc(50% + list.nth($position, 1));
+        }
       }
     }
   }

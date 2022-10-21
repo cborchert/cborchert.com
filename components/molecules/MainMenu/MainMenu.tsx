@@ -51,7 +51,7 @@ const MainMenu = () => {
 
   return (
     <>
-      <nav>
+      <nav className={styles.MainMenu}>
         <ul className={styles.MainMenu__list}>
           <li className={styles.MainMenu__item}>
             <LanguageToggle />

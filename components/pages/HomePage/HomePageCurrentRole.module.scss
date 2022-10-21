@@ -20,8 +20,12 @@
 .HomePageCurrentRole__subtitle {
   margin: 0;
   line-height: 1.125;
-  font-size: $size-xl;
+  font-size: $size-larger;
   color: $color-text-alt;
+
+  @include screen-medium {
+    font-size: $size-xl;
+  }
 }
 
 .HomePageCurrentRole__company {
@@ -30,7 +34,7 @@
 }
 
 .HomePageCurrentRole__body {
-  @include screen-medium {
+  @include screen-large {
     display: flex;
     gap: $space-l + $space-m;
   }

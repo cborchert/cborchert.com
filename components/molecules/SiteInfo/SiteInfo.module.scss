@@ -1,4 +1,5 @@
 @use "styles/spacing" as *;
+@use "styles/breakpoints" as *;
 
 .SiteInfo {
   display: flex;
@@ -17,17 +18,22 @@
 }
 
 .SiteInfo__avatarContainer {
-  width: 100px;
-  height: 100px;
-  transition: 200ms;
+  width: 70px;
+  height: 70px;
 
-  &.SiteInfo__avatarContainer_small {
-    width: 70px;
-    height: 70px;
-  }
+  @include screen-medium {
+    width: 100px;
+    height: 100px;
+    transition: 200ms;
 
-  @media (prefers-reduced-motion) {
-    width: 70px;
-    height: 70px;
+    &.SiteInfo__avatarContainer_small {
+      width: 70px;
+      height: 70px;
+    }
+
+    @media (prefers-reduced-motion) {
+      width: 70px;
+      height: 70px;
+    }
   }
 }

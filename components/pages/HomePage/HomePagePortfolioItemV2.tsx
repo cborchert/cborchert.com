@@ -8,8 +8,12 @@ import styles from "./HomePagePortfolioItemV2.module.scss";
 
 export const dictionary = {
   viewProject: {
-    en: "View Project",
-    fr: "Voir le projet",
+    en: "Learn more",
+    fr: "En Savoir Plus",
+  },
+  external: {
+    en: "visit",
+    fr: "y aller",
   },
 };
 
@@ -44,7 +48,7 @@ const HomePagePortfolioItem = ({
   const links = [
     { href: npm, name: "npm" },
     { href: github, name: "github" },
-    { href: link, name: "external" },
+    { href: link, name: t("external") },
   ].filter((link) => link.href);
 
   return (
@@ -66,10 +70,15 @@ const HomePagePortfolioItem = ({
           </div>
         )}
         {video && (
-          <div className={styles.HomePagePortfolioItem__video}>
+          <div
+            className={styles.HomePagePortfolioItem__video}
+            style={{ backgroundColor: bgColor }}
+          >
             {href ? (
               <Link href={href}>
-                <video autoPlay loop muted playsInline src={video} />
+                <a className="no-underline">
+                  <video autoPlay loop muted playsInline src={video} />
+                </a>
               </Link>
             ) : (
               <video autoPlay loop muted playsInline src={video} />

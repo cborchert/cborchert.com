@@ -17,7 +17,14 @@ const HomePageGetInTouch = () => (
         <Fr>Avez vous des questions ? Vous voulez travailler ensemble ?</Fr>
       </p>
       <div>
-        <ButtonLink href="mailto:christopher.borchert@gmail.com">
+        <ButtonLink
+          href="mailto:christopher.borchert@gmail.com"
+          useAnchor
+          attrs={{
+            target: "_blank",
+            rel: "noreferrer",
+          }}
+        >
           <En>Drop Me a Line</En>
           <Fr>Parlons en !</Fr>
         </ButtonLink>

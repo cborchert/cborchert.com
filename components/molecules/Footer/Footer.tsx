@@ -21,9 +21,13 @@ const Footer = () => {
       <nav>
         <ul className={styles.Footer__links}>
           <li>
-            <Link href="mailto:christopher.borchert@gmail.com" target="_blank">
+            <a
+              href="mailto:christopher.borchert@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               Email
-            </Link>
+            </a>
           </li>
           <li>
             <Link href="https://github.com/cborchert" target="_blank">

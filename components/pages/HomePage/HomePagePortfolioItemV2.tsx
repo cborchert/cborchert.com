@@ -1,6 +1,8 @@
 import classNames from "classnames";
+import { captureRejectionSymbol } from "events";
 import Image from "next/image";
 import Link from "next/link";
+import { useInView } from "react-intersection-observer";
 
 import useTranslation from "../../../utils/hooks/useTranslation";
 
@@ -22,6 +24,7 @@ const HomePagePortfolioItem = ({
   date,
   description,
   video,
+  videoPoster,
   href,
   bgColor,
   loResCoverImage,
@@ -43,6 +46,7 @@ const HomePagePortfolioItem = ({
   npm?: string;
   link?: string;
   left?: boolean;
+  videoPoster?: string;
 }) => {
   const t = useTranslation(dictionary);
   const links = [
@@ -50,6 +54,24 @@ const HomePagePortfolioItem = ({
     { href: github, name: "github" },
     { href: link, name: t("external") },
   ].filter((link) => link.href);
+
+  const { ref, inView } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+    rootMargin: "200px 0px",
+  });
+
+  /**
+   * Use a link to surround the video if possible
+   */
+  const VideoContainer = ({ children }: { children: React.ReactNode }) =>
+    href ? (
+      <Link href={href}>
+        <a className="no-underline">{children}</a>
+      </Link>
+    ) : (
+      <>{children}</>
+    );
 
   return (
     <div
@@ -73,16 +95,18 @@ const HomePagePortfolioItem = ({
           <div
             className={styles.HomePagePortfolioItem__video}
             style={{ backgroundColor: bgColor }}
+            ref={ref}
           >
-            {href ? (
-              <Link href={href}>
-                <a className="no-underline">
-                  <video autoPlay loop muted playsInline src={video} />
-                </a>
-              </Link>
-            ) : (
-              <video autoPlay loop muted playsInline src={video} />
-            )}
+            <VideoContainer>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                src={inView ? video : undefined}
+                poster={inView ? videoPoster : undefined}
+              />
+            </VideoContainer>
           </div>
         )}
       </div>
@@ -119,7 +143,7 @@ const HomePagePortfolioItem = ({
         {links.length > 0 && (
           <ul className={styles.HomePagePortfolioItem__stack}>
             {links.map(({ href, name }) => (
-              <li key={link}>
+              <li key={href}>
                 <a href={href} target="_blank" rel="noreferrer">
                   {name}
                 </a>

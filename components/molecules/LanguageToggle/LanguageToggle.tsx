@@ -12,7 +12,15 @@ const LanguageToggle = () => {
   const { toggleLanguage, language } = useLanguageContext();
 
   return (
-    <button onClick={toggleLanguage} className={styles.LanguageToggle}>
+    <button
+      onClick={toggleLanguage}
+      className={styles.LanguageToggle}
+      aria-label={
+        language === LANGUAGES.EN
+          ? "Switch from English to French"
+          : "Changer la langue vers l'anglais"
+      }
+    >
       <Flag isUsa={language === LANGUAGES.EN} />
       <div className={styles.LanguageToggle__info}>
         <En>

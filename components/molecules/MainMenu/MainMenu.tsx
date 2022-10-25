@@ -36,9 +36,9 @@ const dictionary = Object.freeze({
 const links: Array<{ href: string; translationKey: keyof typeof dictionary }> =
   [
     { href: "/#home", translationKey: "menuHome" },
-    { href: "/#portfolio", translationKey: "menuWork" },
     { href: "/#role", translationKey: "menuRole" },
     { href: "/#stack", translationKey: "menuStack" },
+    { href: "/#portfolio", translationKey: "menuWork" },
     { href: "/#hire", translationKey: "menuAvailability" },
   ];
 

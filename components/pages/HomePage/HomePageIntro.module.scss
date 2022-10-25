@@ -18,8 +18,7 @@
 
 .HomePageIntro__description {
   font-size: $size-l;
-  font-weight: 200;
-
+  font-weight: 300;
   line-height: 1.5;
 
   em {
@@ -30,6 +29,7 @@
 
 .HomePageIntro__mainLine {
   font-size: $size-cataclysmic;
+  font-weight: 200;
   margin-top: $space-m;
   margin-bottom: $space-l;
   line-height: 1.125;
